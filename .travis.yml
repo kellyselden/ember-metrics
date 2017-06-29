@@ -4,10 +4,9 @@ node_js:
   - "6"
 
 sudo: false
-dist: trusty
 
 addons:
-  chrome: stable
+  firefox: latest
 
 cache:
   directories:
@@ -29,6 +28,8 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
+  - export DISPLAY=:99
+  - sh -e /etc/init.d/xvfb start
   - npm config set spin false
 
 install:
